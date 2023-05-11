@@ -4,61 +4,44 @@ import { useRouter } from "next/router";
 import style from "../style/Contact.module.css";
 import Navbar from "@/components/Navigation";
 
-import { TextField, makeStyles, Button } from "@material-ui/core";
+const inputStyles = {
+  borderRadius: "0.2rem",
+  outline: "transparent",
+  height: "20px",
+  width: "100%",
+  padding: "0.5rem",
+  border: "1px solid #0DA324",
 
-const useStyles = makeStyles({
-  label: {
-    textAlign: "start",
-    justifyContent: "center",
-  },
-  customSize: {
-    width: "80%",
-    height: "50px",
-  },
-  textField: {
-    margin: "0.2rem ",
-    width: "120%",
-    height: "50px",
-    "& input": {
-      borderRadius: "0.5rem",
-      outline: "transparent",
-      "&:focus": {
-        border: "1px outlined blue",
-      },
-    },
-  },
-});
+  marginBottom: "1rem",
+};
+
+const buttonStyles = {
+  backgroundColor: "#0DA324",
+  color: "white",
+  padding: "10px",
+  margin: "0.5rem",
+  borderRadius: "0.2rem",
+  width: "80%",
+  boxShadow: "none",
+  border: "none",
+  cursor: "pointer",
+};
 
 function EnvoyerButton() {
-  const buttonStyle = {
-    padding: "8px",
-    margin: "0.5rem",
-    borderRadius: "0.2rem",
-    width: "80%",
-    boxShadow: "none", // pour enlever le shadow
-  };
   return (
-    <Button
-      variant="contained"
-      color="primary"
-      disableElevation
-      style={buttonStyle}
-      type="submit"
-    >
+    <button style={buttonStyles} type="submit">
       Envoyer
-    </Button>
+    </button>
   );
 }
 
 function Contact() {
-  const classes = useStyles();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const router = useRouter();
 
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     const res = await fetch("https://formspree.io/f/xlekvgeb", {
       method: "POST",
       body: JSON.stringify({ name, email, message }),
@@ -86,33 +69,27 @@ function Contact() {
       <div className={style.formPostion}>
         <form className={style.form} onSubmit={handleSubmit}>
           <h2 className={style.container}>Formulaire de contact</h2>
-          <TextField
-            label="Name"
-            variant="outlined"
-            className={classes.textField}
-            classes={{ root: classes.label }}
-            inputProps={{ style: { height: "5px" } }}
+          <input
+            type="text"
+            placeholder="Nom"
+            style={inputStyles}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <TextField
-            label="Email"
-            variant="outlined"
-            className={classes.textField}
-            classes={{ root: classes.label }}
-            inputProps={{ style: { height: "5px" } }}
+          <input
+            type="email"
+            placeholder="Email"
+            style={inputStyles}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <TextField
-            label="Message"
-            variant="outlined"
-            className={classes.textField}
-            classes={{ root: classes.label }}
+          <textarea
+            placeholder="Message"
+            className={style.container}
+            style={{ ...inputStyles, height: "200px" }}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-          />
-
+          ></textarea>
           <EnvoyerButton />
         </form>
       </div>

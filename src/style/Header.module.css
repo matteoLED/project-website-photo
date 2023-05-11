@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Inter&display=swap');
+
+.header1{
+        font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+            background-image: url('/plante.webp');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+}
+
+
+.header {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 50px;
+    color: #fff;
+background-image: url('/plante.webp');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Inter', sans-serif;
+
+}
+.listCategory{
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+
+}
+
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+}
+
+.nav a {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: #1890ff;
+}

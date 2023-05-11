@@ -1,0 +1,15 @@
+.img {
+    justify-content: center;
+    display: flex;
+    padding: 120px;
+    margin: auto;
+    justify-content: center;
+   
+}
+.gridImg{
+    display: grid;
+    justify-content: center;
+    padding: 80px;
+    margin: auto;
+    border-radius: 10px;
+}

@@ -16,7 +16,7 @@ function Gallery() {
     { url: "/chateau.jpg", title: "Image 6" },
   ];
 
-  const renderGridTile = (images) => (
+  const renderGridTile = (images: { url: string; title: string }) => (
     <div
       key={images.url}
       style={{

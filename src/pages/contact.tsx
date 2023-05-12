@@ -41,7 +41,8 @@ function Contact() {
   const [message, setMessage] = useState("");
   const router = useRouter();
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
     const res = await fetch("https://formspree.io/f/xlekvgeb", {
       method: "POST",
       body: JSON.stringify({ name, email, message }),
@@ -71,7 +72,7 @@ function Contact() {
           <h2 className={style.container}>Formulaire de contact</h2>
           <input
             type="text"
-            placeholder="Nom"
+            placeholder="Prénom"
             style={inputStyles}
             value={name}
             onChange={(e) => setName(e.target.value)}

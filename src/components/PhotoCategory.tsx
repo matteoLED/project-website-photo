@@ -15,6 +15,7 @@ const photos = [
   { id: 5, category: "Famille", url: "/famille2.jpg" },
   { id: 6, category: "Baptême", url: "/bapteme.jpg" },
   { id: 7, category: "Couple", url: "/couple.jpg" },
+  { id: 8, category: "Portrait", url: "/portrait.jpg" },
 ];
 
 function Gallery() {
@@ -54,6 +55,9 @@ function Gallery() {
         </li>
         <li onClick={() => handleCategorySelect("Couple")}>
           <button className={styles.button}>Couple</button>
+        </li>
+        <li onClick={() => handleCategorySelect("Portrait")}>
+          <button className={styles.button}>Portrait</button>
         </li>
       </ul>
       <div className={styles.categoryfilterli}>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "../style/Navigation.module.css";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
+
 function Navbar() {
   return (
     <nav className={styles.navbar}>

@@ -39,16 +39,17 @@ background-image: url('/plante.webp');
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    padding: 20px 50px;
     font-family: 'Inter', sans-serif;
 
 }
 .listCategory{
     display: flex;
-    
+    flex-direction: row;
     flex-direction: column;
     justify-content: center;
     font-family: 'Inter', sans-serif;
+    margin: 0;
 
 }
 

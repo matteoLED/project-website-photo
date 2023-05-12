@@ -1,14 +1,14 @@
-import React from 'react';
-import MyComponent from '@/components/Image';
-import Head from 'next/head';
-import Header from '@/components/Header';
+import React from "react";
+import MyComponent from "@/components/Image";
+import Head from "next/head";
+import Header from "@/components/Header";
 
 function HomePage() {
   return (
-      <>
-       <Header />
+    <>
+      <Header />
     </>
-  )
+  );
 }
 
 export default HomePage;

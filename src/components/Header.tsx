@@ -3,7 +3,6 @@ import Head from "next/head";
 import React from "react";
 import Navbar from "@/components/Navigation";
 import ImageAsset from "@/components/Image";
-import Footer from "./Footer";
 
 export default function Header() {
   return (

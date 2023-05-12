@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import styles from "../style/Image.module.css";
 import style from "../style/Header.module.css";
@@ -6,82 +5,82 @@ import Navigation from "../components/Navigation";
 import styled from "@emotion/styled";
 import Navbar from "../components/Navigation";
 
-function PhotoGallery() {
-  const images = [
-    { url: "/biche.jpg", title: "Image 1" },
-    { url: "/loutre.jpg", title: "Image 2" },
-    { url: "/mariage.webp", title: "Image 3" },
-    { url: "/oiseau.webp", title: "Image 4" },
-    { url: "/table.webp", title: "Image 5" },
-    { url: "/chateau.jpg", title: "Image 6" },
-  ];
+import React, { useState } from "react";
 
-  const renderGridTile = (images: { url: string; title: string }) => (
-    <div
-      key={images.url}
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-        overflow: "hidden",
-        width: "100%",
-        height: 0,
-        paddingTop: "75%",
-        borderRadius: "8px",
-      }}
-    >
-      <img
-        src={images.url}
-        alt={images.title}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-          color: "#fff",
-          padding: "8px",
-          fontSize: "1.2rem",
-          fontFamily: "Inter,sans-serif",
-          fontWeight: "bold",
-          textShadow: "1px 1px #000",
-        }}
+const photos = [
+  { id: 1, category: "Mariage", url: "/mariage.webp" },
+  { id: 2, category: "Grossesse", url: "/grossesse.webp" },
+  { id: 3, category: "Bébé", url: "/bebe.jpg" },
+  { id: 4, category: "Famille", url: "/family.jpg" },
+  { id: 5, category: "Famille", url: "/famille2.jpg" },
+  { id: 6, category: "Baptême", url: "/bapteme.jpg" },
+  { id: 7, category: "Couple", url: "/couple.jpg" },
+];
+
+function Gallery() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("Tous");
+
+  const handleCategorySelect = (category: string) => {
+    setSelectedCategory(category);
+  };
+
+  const filteredPhotos =
+    selectedCategory !== "Tous"
+      ? photos.filter((photo) => photo.category === selectedCategory)
+      : photos;
+
+  return (
+    <div className={style.body}>
+      <ul
+        style={{ display: "flex", listStyle: "none", margin: 0, padding: 10 }}
       >
-        {images.title}
+        <li onClick={() => handleCategorySelect("Tous")}>
+          <button className={styles.button}>Tous</button>
+        </li>
+        <li onClick={() => handleCategorySelect("Mariage")}>
+          <button className={styles.button}>Mariage</button>
+        </li>
+        <li onClick={() => handleCategorySelect("Grossesse")}>
+          <button className={styles.button}>Grossesse</button>
+        </li>
+        <li onClick={() => handleCategorySelect("Bébé")}>
+          <button className={styles.button}>Bébé</button>
+        </li>
+        <li onClick={() => handleCategorySelect("Famille")}>
+          <button className={styles.button}>Famille</button>
+        </li>
+        <li onClick={() => handleCategorySelect("Baptême")}>
+          <button className={styles.button}>Baptême</button>
+        </li>
+        <li onClick={() => handleCategorySelect("Couple")}>
+          <button className={styles.button}>Couple</button>
+        </li>
+      </ul>
+      <div className={styles.categoryfilterli}>
+        {filteredPhotos.map((photo) => (
+          <Image
+            key={photo.id}
+            src={photo.url}
+            alt={photo.category}
+            width={300}
+            height={300}
+          />
+        ))}
       </div>
     </div>
   );
+}
 
+function PhotoGallery() {
   return (
     <>
       <Navbar />
+
       <div style={{ padding: "16px" }}>
         <h1 style={{ textAlign: "center" }} className={style.header}>
           Gallery Photo
         </h1>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "16px",
-            marginBottom: "32px",
-          }}
-        >
-          {images.map(renderGridTile)}
-        </div>
+        <Gallery />
       </div>
     </>
   );

@@ -4,28 +4,6 @@ import style from "../style/Header.module.css";
 import ImageAsset from "@/components/Image";
 import Navbar from "@/components/Navigation";
 
-const categories = [
-  "Mariage",
-  "Grossesse",
-  "Bébé",
-  "Famille",
-  "Baptême",
-  "Couple",
-];
-
-function CategoryList() {
-  return (
-    <div className={style.body}>
-      <h2>Catégories de photos :</h2>
-      <ul>
-        {categories.map((category, index) => (
-          <li key={index}>{category} </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 function About() {
   const tarifs = [
     {
@@ -65,7 +43,7 @@ function About() {
   return (
     <>
       <Navbar />
-      <CategoryList />
+
       <div className={style.body}>
         <h2>Tarifs et prestations :</h2>
         <ul>

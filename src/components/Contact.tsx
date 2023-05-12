@@ -10,13 +10,13 @@ const inputStyles = {
   height: "20px",
   width: "100%",
   padding: "0.5rem",
-  border: "1px solid #0DA324",
+  border: "1px solid #2a9d8f",
 
   marginBottom: "1rem",
 };
 
 const buttonStyles = {
-  backgroundColor: "#0DA324",
+  backgroundColor: "#2a9d8f",
   color: "white",
   padding: "10px",
   margin: "0.5rem",
